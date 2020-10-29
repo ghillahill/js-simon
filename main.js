@@ -44,9 +44,15 @@ $(document).ready(function () {
         $( ".box-info p" ).toggleClass('active');
         $('.box-info h2').toggleClass('active');
 
-        for (var i = 0; i < 5; i++) {
-            var sceltaUtente = parseInt(prompt("Digita uno dei numeri!"));
+        var waitToggleClassTimeout = setTimeout(promptFunction, 1500);
+
+        function promptFunction() {
+            for (var i = 0; i < 5; i++) {
+                var sceltaUtente = parseInt(prompt("Digita uno dei numeri!"));
+            }
         }
+
+
     }
 
     function getRndInteger(min, max) {
