@@ -23,14 +23,14 @@ $(document).ready(function () {
     $('.box-info p').append(listaNumeriRandom.join(' , '));
 
     //Da lì parte un timer di 30 secondi.
-    var tempoRimanente = 30;
+    var tempoRimanente = 4;
     var displayTimer = $('.box-info h2');
 
     var timerId = setInterval(countdown, 1000);
 
     function countdown() {
       if (tempoRimanente == -1) {
-        clearTimeout(timerId);
+        clearInterval(timerId);
         getUserInput();
       } else {
         $('.box-info h2').text('Timer: ' + tempoRimanente + ' secondi rimanenti!');
