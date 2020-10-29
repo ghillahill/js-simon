@@ -21,6 +21,23 @@ $(document).ready(function () {
 
     $('.box-info p').append(listaNumeriRandom.join(' , '));
 
+    var timeLeft = 30;
+    var displayTimer = $('.box-info h2');
+
+    var timerId = setInterval(countdown, 1000);
+
+    function countdown() {
+      if (timeLeft == -1) {
+        clearTimeout(timerId);
+        //getUserInput();
+      } else {
+        $('.box-info h2').text('Timer: ' + timeLeft + ' secondi rimanenti!');
+        timeLeft--;
+      }
+    }
+
+    
+
     function getRndInteger(min, max) {
       return Math.floor(Math.random() * (max - min + 1) ) + min;
     }
