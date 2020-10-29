@@ -1,11 +1,5 @@
 $(document).ready(function () {
 
-
-
-    //e l'utente deve inserire (tramite prompt) i numeri che ha visto precedentemente, uno alla volta.
-    //Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei numeri da indovinare sono stati individuati.
-    //BONUS: visualizzare in pagina anche un timer con il countdown dei 30 secondi
-
     //Visualizzare in pagina 5 numeri casuali.
     var listaNumeriRandom = [];
 
@@ -33,6 +27,7 @@ $(document).ready(function () {
         clearInterval(timerId);
         getUserInput();
       } else {
+        //BONUS: visualizzare in pagina anche un timer con il countdown dei 30 secondi
         $('.box-info h2').text('Timer: ' + tempoRimanente + ' secondi rimanenti!');
         tempoRimanente--;
       }
@@ -44,16 +39,27 @@ $(document).ready(function () {
         $( ".box-info p" ).toggleClass('active');
         $('.box-info h2').toggleClass('active');
 
-        var waitToggleClassTimeout = setTimeout(promptFunction, 1500);
-
-        function promptFunction() {
-            for (var i = 0; i < 5; i++) {
-                var sceltaUtente = parseInt(prompt("Digita uno dei numeri!"));
-            }
-        }
-
+        var waitToggleClassTimeout = setTimeout(promptFunction, 1000);
 
     }
+
+    //e l'utente deve inserire (tramite prompt) i numeri che ha visto precedentemente, uno alla volta.
+    function promptFunction() {
+
+        var listaNumeriUtente = [];
+
+        for (var i = 0; i < 5; i++) {
+            var sceltaUtente = parseInt(prompt("Digita uno dei numeri!"));
+            listaNumeriUtente.push(sceltaUtente);
+        }
+
+        console.log(listaNumeriUtente);
+    }
+
+    //Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei numeri da indovinare sono stati individuati.
+
+    //
+    //
 
     function getRndInteger(min, max) {
       return Math.floor(Math.random() * (max - min + 1) ) + min;
