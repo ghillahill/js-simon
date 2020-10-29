@@ -19,6 +19,8 @@ $(document).ready(function () {
 
     console.log(listaNumeriRandom);
 
+    $('.box-info p').append(listaNumeriRandom.join(' , '));
+
     function getRndInteger(min, max) {
       return Math.floor(Math.random() * (max - min + 1) ) + min;
     }
